@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p><b>This is html text</b></p>
+        {% if appointments_by_date %}
+            <ul>
+            {% for a in appointments_by_date %}
+                <li>{{ a }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nothing found</p>
+        {% endif %}
+    </body>
+</html>
