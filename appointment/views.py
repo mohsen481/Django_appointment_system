@@ -11,11 +11,11 @@ def show_user_appointments(request,user_id):
     try:
         user=Person.objects.get(pk=user_id)
         all=user.appointments_set.all()
-        contex={'all':all}
+        context={'all':all}
     except Person.DoesNotExist:
        raise Http404("No such user")
-    return render(request,"appointment/show.html",contex)
-def all_appointments(requests):
+    return render(request,"appointment/show.html",context)
+def all_appointments(request):
     all=Appointments.objects.order_by("time")
     result=", ".join([str(a.time) for a in all])
     return HttpResponse(result)
